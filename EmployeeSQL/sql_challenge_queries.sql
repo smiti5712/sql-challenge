@@ -58,6 +58,9 @@ departments d
 on de.dept_no = d.dept_no ;
 
 --4(b)The query below gives each employees' most recent department information.
+--since Question 6 and 7 require to list employees who are in Sales /Development departments , we will need to 
+--use the same query again in both places. Hence, creating a view will help.
+CREATE OR REPLACE VIEW Emp_Dept_current as
 select e.emp_no "Employee Number" ,e.last_name "Last Name",e.first_name "First Name",d.dept_name "Department Name"
 from employees e
 left join
@@ -73,6 +76,8 @@ inner join
 departments d
 on de.dept_no = d.dept_no;
 
+--The query below gives each employees' most recent department information.
+select * from Emp_Dept_current;
 
 --5.List all employees whose first name is "Hercules" and last names begin with "B."
 
@@ -81,7 +86,7 @@ from employees e
 where e.first_name = 'Hercules' and upper(e.last_name) like 'B%';
 
 --6.List all employees in the Sales department, including their employee number, last name, first name, and department name.
-
+--6(a) The below query lists all employees in the sales department irrespective of whether or not their most recent department is Sales 
 select e.emp_no  "Employee Number",e.last_name "Last Name",e.first_name "First Name",d.dept_name "Department Name"
 from employees e
 inner join
@@ -92,9 +97,13 @@ departments d
 on de.dept_no = d.dept_no 
 where lower(dept_name) = 'sales';
 
+--6(b) The below query lists all employees in the sales department irrespective of whether or not their most recent department is Sales 
+select * from Emp_Dept_current
+ where lower("Department Name") = 'sales';
+
 --7.List all employees in the Sales and Development departments, 
 --including their employee number, last name, first name, and department name.
-
+--7(a) The below query lists all employees in the sales and Development department irrespective of whether or not their most recent department is Sales 
 select e.emp_no  "Employee Number",e.last_name "Last Name",e.first_name "First Name",d.dept_name "Department Name"
 from employees e
 inner join
@@ -105,8 +114,12 @@ departments d
 on de.dept_no = d.dept_no 
 where ( lower(dept_name) = 'sales' or lower(dept_name) = 'development');
 
+--7(b) The below query lists all employees in the sales and Development department irrespective of whether or not their most recent department is Sales 
+select * from Emp_Dept_current
+ where ( lower("Department Name") = 'sales' or lower("Department Name") = 'development');
+ 
+ 
 --8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
-
 select last_name as "Last Name",count(*) as "Count of Employees" from employees
 group by last_name
 order by 2 desc;
