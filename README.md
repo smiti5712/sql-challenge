@@ -44,10 +44,16 @@ Following questions were answered -
 
 1. Imported the SQL database into Pandas.
 
+    ```For this step to run please provide the postgresql user , password and local host as below in a config.py file 
+       usr =  "Your User name"
+       passwd = "Your Password"
+       host_name = "Your host : Config Port"
+    ```    
+
 2. Created a histogram to visualize the most common salary ranges for employees.
 
-![Histogram Salary.png](Histogram Salary.png)
+![Histogram Salary.png](Histogram%20Salary.png)
 
 3. Created a bar chart of average salary by title.
 
-![Average salary by title.png](Average salary by title.png)
+![Average salary by title.png](Average%20salary%20by%20title.png)
