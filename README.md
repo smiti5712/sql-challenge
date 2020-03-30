@@ -14,7 +14,7 @@ Inspecting the data in these CSV files, the following aspects were designed -
 
 #### Data Modeling
 
-![Employees-DB ER Diagram.png](Employees-DB ER Diagram.png)
+![Employees-DB ER Diagram.png](Employees-DB%20ER%20Diagram.png)
 
 #### Data Engineering
 
