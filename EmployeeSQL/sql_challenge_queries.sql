@@ -46,7 +46,7 @@ on dm.emp_no = e.emp_no;
 
 --4.List the department of each employee with the following information: employee number, last name, first name, and department name.
 
---4(a)The query below gives each employees' department information , and additionally shows the start_date and end_date for each record
+--4(a)The query below gives each employees' department information , whether or not that's their most current department
 select e.emp_no  "Employee Number",e.last_name "Last Name",e.first_name "First Name",d.dept_name "Department Name",
 de.from_date "Start Date",de.to_date "End Date"
 from employees e
@@ -79,7 +79,7 @@ on de.dept_no = d.dept_no;
 --The query below gives each employees' most recent department information.
 select * from Emp_Dept_current;
 
---5.List all employees whose first name is "Hercules" and last names begin with "B."
+--5.List all employees whose first name is "Hercules" and last names begin with "B"
 
 select e.emp_no  "Employee Number",e.last_name "Last Name",e.first_name "First Name"
 from employees e
@@ -97,7 +97,7 @@ departments d
 on de.dept_no = d.dept_no 
 where lower(dept_name) = 'sales';
 
---6(b) The below query lists all employees in the sales department irrespective of whether or not their most recent department is Sales 
+--6(b) The below query lists all employees whose current department is sales 
 select * from Emp_Dept_current
  where lower("Department Name") = 'sales';
 
@@ -114,7 +114,7 @@ departments d
 on de.dept_no = d.dept_no 
 where ( lower(dept_name) = 'sales' or lower(dept_name) = 'development');
 
---7(b) The below query lists all employees in the sales and Development department irrespective of whether or not their most recent department is Sales 
+--7(b)The below query lists all employees whose current department is sales and development
 select * from Emp_Dept_current
  where ( lower("Department Name") = 'sales' or lower("Department Name") = 'development');
  
