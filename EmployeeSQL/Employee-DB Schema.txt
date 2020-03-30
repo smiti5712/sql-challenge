@@ -1,0 +1,44 @@
+# Employee Database ERD
+
+employees
+-
+emp_no int PK
+birth_date date
+first_name varchar(30)
+last_name varchar(30)
+gender char(1)
+hire_date date
+
+salaries
+-
+emp_no int UNIQUE FK >- employees.emp_no
+salary int
+from_date date UNIQUE
+to_date date UNIQUE
+
+titles
+-
+emp_no int UNIQUE FK >- employees.emp_no
+title  varchar(30)
+from_date date UNIQUE	
+to_date date UNIQUE
+
+departments
+-
+dept_no varchar(10) PK
+dept_name varchar(30)
+
+dept_emp
+-
+emp_no int UNIQUE FK >- employees.emp_no
+dept_no varchar(10)  FK >- departments.dept_no
+from_date date UNIQUE
+to_date   date UNIQUE
+
+
+dept_manager
+-
+dept_no varchar(10) UNIQUE FK >- departments.dept_no
+emp_no int  FK >- employees.emp_no
+from_date date UNIQUE	
+to_date   date UNIQUE	
