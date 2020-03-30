@@ -10,7 +10,7 @@ In this assignment, 6 CSV files were provided-
 5. dept_emp - employee's change in department within the time period  (from_date - to_date)
 6. dept_managers - department's  change in manager within the time period  (from_date - to_date)
 
-Inspecting the data in these CSV files, the following aspects were designed -
+Post analysis of the data in these CSV files, the following aspects were designed -
 
 #### Data Modeling
 
@@ -44,7 +44,8 @@ Following questions were answered -
 
 1. Imported the SQL database into Pandas.
 
-    ```For this step to run please provide the postgresql user , password and local host as below in a config.py file 
+    ```
+       For this step to run please provide the postgresql user , password and local host as below in a config.py file :
        usr =  "Your User name"
        passwd = "Your Password"
        host_name = "Your host : Config Port"
